@@ -55,3 +55,9 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+### API to list students
+/api/students
+
+### to list images too
+/api/students?populate=*

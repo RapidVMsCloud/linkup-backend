@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fname": {
+      "type": "string",
+      "required": true
+    },
+    "lname": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "integer",
+      "required": true
+    },
+    "dob": {
+      "type": "date"
+    },
+    "fatherName": {
+      "type": "string",
+      "required": true
+    },
+    "motherName": {
+      "type": "string",
+      "required": true
+    },
+    "aadhaarCard": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "profilePicture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "mobileParent": {
+      "type": "integer",
+      "required": true
+    },
+    "class": {
+      "type": "string",
+      "required": false
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "village": {
+      "type": "string",
+      "required": false
+    },
+    "district": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
