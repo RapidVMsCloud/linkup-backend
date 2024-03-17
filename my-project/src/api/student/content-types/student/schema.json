@@ -76,6 +76,12 @@
     "district": {
       "type": "string",
       "required": true
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "students"
     }
   }
 }
