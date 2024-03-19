@@ -380,7 +380,7 @@ export interface ApiStudentStudent extends Schema.CollectionType {
     dob: Attribute.Date;
     fatherName: Attribute.String & Attribute.Required;
     motherName: Attribute.String & Attribute.Required;
-    aadhaarCard: Attribute.Media & Attribute.Required;
+    aadhaarCard: Attribute.Media;
     profilePicture: Attribute.Media;
     mobileParent: Attribute.Integer & Attribute.Required;
     class: Attribute.String;

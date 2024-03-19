@@ -61,3 +61,6 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 
 ### to list images too
 /api/students?populate=*
+
+### To login with 'identifier' & 'password' as auth
+/api/auth/local
