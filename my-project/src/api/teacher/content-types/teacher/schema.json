@@ -27,8 +27,14 @@
     },
     "students": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::student.student",
+      "mappedBy": "teachers"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
       "mappedBy": "teacher"
     }
   }

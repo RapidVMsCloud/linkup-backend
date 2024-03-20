@@ -78,9 +78,9 @@
       "type": "string",
       "required": true
     },
-    "teacher": {
+    "teachers": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::teacher.teacher",
       "inversedBy": "students"
     }

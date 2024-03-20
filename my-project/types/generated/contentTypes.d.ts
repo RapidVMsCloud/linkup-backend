@@ -388,9 +388,9 @@ export interface ApiStudentStudent extends Schema.CollectionType {
     state: Attribute.String & Attribute.Required;
     village: Attribute.String;
     district: Attribute.String & Attribute.Required;
-    teacher: Attribute.Relation<
+    teachers: Attribute.Relation<
       'api::student.student',
-      'manyToOne',
+      'manyToMany',
       'api::teacher.teacher'
     >;
     createdAt: Attribute.DateTime;
@@ -429,8 +429,13 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
     dob: Attribute.Date;
     students: Attribute.Relation<
       'api::teacher.teacher',
-      'oneToMany',
+      'manyToMany',
       'api::student.student'
+    >;
+    user: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToOne',
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -857,6 +862,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'manyToOne',
       'plugin::users-permissions.role'
+    >;
+    teacher: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::teacher.teacher'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
