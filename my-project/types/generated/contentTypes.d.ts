@@ -388,6 +388,11 @@ export interface ApiStudentStudent extends Schema.CollectionType {
     state: Attribute.String & Attribute.Required;
     village: Attribute.String;
     district: Attribute.String & Attribute.Required;
+    users_permissions_users: Attribute.Relation<
+      'api::student.student',
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
     teachers: Attribute.Relation<
       'api::student.student',
       'manyToMany',
@@ -423,8 +428,8 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
+    fname: Attribute.String;
     lname: Attribute.String;
-    mobile: Attribute.String & Attribute.Required;
     email: Attribute.Email;
     dob: Attribute.Date;
     students: Attribute.Relation<
@@ -862,6 +867,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'manyToOne',
       'plugin::users-permissions.role'
+    >;
+    students: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::student.student'
     >;
     teacher: Attribute.Relation<
       'plugin::users-permissions.user',

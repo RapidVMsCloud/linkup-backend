@@ -12,12 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "lname": {
+    "fname": {
       "type": "string"
     },
-    "mobile": {
-      "type": "string",
-      "required": true
+    "lname": {
+      "type": "string"
     },
     "email": {
       "type": "email"
@@ -29,7 +28,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::student.student",
-      "mappedBy": "teachers"
+      "inversedBy": "teachers"
     },
     "user": {
       "type": "relation",
