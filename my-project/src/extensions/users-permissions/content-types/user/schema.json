@@ -65,17 +65,11 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "students": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::student.student",
-      "mappedBy": "users_permissions_users"
-    },
     "teacher": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::teacher.teacher",
-      "inversedBy": "user"
+      "mappedBy": "main_user"
     }
   }
 }

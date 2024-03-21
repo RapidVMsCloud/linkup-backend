@@ -78,12 +78,6 @@
       "type": "string",
       "required": true
     },
-    "users_permissions_users": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "students"
-    },
     "teachers": {
       "type": "relation",
       "relation": "manyToMany",

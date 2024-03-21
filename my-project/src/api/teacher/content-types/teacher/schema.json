@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -18,11 +18,8 @@
     "lname": {
       "type": "string"
     },
-    "email": {
-      "type": "email"
-    },
-    "dob": {
-      "type": "date"
+    "mobile": {
+      "type": "biginteger"
     },
     "students": {
       "type": "relation",
@@ -30,11 +27,11 @@
       "target": "api::student.student",
       "inversedBy": "teachers"
     },
-    "user": {
+    "main_user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "teacher"
+      "inversedBy": "teacher"
     }
   }
 }

@@ -388,11 +388,6 @@ export interface ApiStudentStudent extends Schema.CollectionType {
     state: Attribute.String & Attribute.Required;
     village: Attribute.String;
     district: Attribute.String & Attribute.Required;
-    users_permissions_users: Attribute.Relation<
-      'api::student.student',
-      'manyToMany',
-      'plugin::users-permissions.user'
-    >;
     teachers: Attribute.Relation<
       'api::student.student',
       'manyToMany',
@@ -425,26 +420,24 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     fname: Attribute.String;
     lname: Attribute.String;
-    email: Attribute.Email;
-    dob: Attribute.Date;
+    mobile: Attribute.BigInteger;
     students: Attribute.Relation<
       'api::teacher.teacher',
       'manyToMany',
       'api::student.student'
     >;
-    user: Attribute.Relation<
+    main_user: Attribute.Relation<
       'api::teacher.teacher',
       'oneToOne',
       'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::teacher.teacher',
       'oneToOne',
@@ -867,11 +860,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'manyToOne',
       'plugin::users-permissions.role'
-    >;
-    students: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'manyToMany',
-      'api::student.student'
     >;
     teacher: Attribute.Relation<
       'plugin::users-permissions.user',
