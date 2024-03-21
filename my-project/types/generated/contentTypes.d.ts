@@ -388,10 +388,10 @@ export interface ApiStudentStudent extends Schema.CollectionType {
     state: Attribute.String & Attribute.Required;
     village: Attribute.String;
     district: Attribute.String & Attribute.Required;
-    teachers: Attribute.Relation<
+    users: Attribute.Relation<
       'api::student.student',
       'manyToMany',
-      'api::teacher.teacher'
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -404,48 +404,6 @@ export interface ApiStudentStudent extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::student.student',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTeacherTeacher extends Schema.CollectionType {
-  collectionName: 'teachers';
-  info: {
-    singularName: 'teacher';
-    pluralName: 'teachers';
-    displayName: 'Teacher';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    fname: Attribute.String;
-    lname: Attribute.String;
-    mobile: Attribute.BigInteger;
-    students: Attribute.Relation<
-      'api::teacher.teacher',
-      'manyToMany',
-      'api::student.student'
-    >;
-    main_user: Attribute.Relation<
-      'api::teacher.teacher',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::teacher.teacher',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::teacher.teacher',
       'oneToOne',
       'admin::user'
     > &
@@ -861,10 +819,10 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    teacher: Attribute.Relation<
+    students: Attribute.Relation<
       'plugin::users-permissions.user',
-      'oneToOne',
-      'api::teacher.teacher'
+      'manyToMany',
+      'api::student.student'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -894,7 +852,6 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::student.student': ApiStudentStudent;
-      'api::teacher.teacher': ApiTeacherTeacher;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

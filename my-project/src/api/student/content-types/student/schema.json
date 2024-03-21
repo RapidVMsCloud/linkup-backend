@@ -78,10 +78,10 @@
       "type": "string",
       "required": true
     },
-    "teachers": {
+    "users": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::teacher.teacher",
+      "target": "plugin::users-permissions.user",
       "mappedBy": "students"
     }
   }
