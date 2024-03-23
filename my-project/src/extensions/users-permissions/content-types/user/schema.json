@@ -65,11 +65,16 @@
       "inversedBy": "users",
       "configurable": false
     },
+    "teacherUserName": {
+      "type": "uid",
+      "targetField": "username",
+      "required": true
+    },
     "students": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::student.student",
-      "inversedBy": "users"
+      "mappedBy": "teacher"
     }
   }
 }

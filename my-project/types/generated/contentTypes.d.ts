@@ -388,7 +388,7 @@ export interface ApiStudentStudent extends Schema.CollectionType {
     state: Attribute.String & Attribute.Required;
     village: Attribute.String;
     district: Attribute.String & Attribute.Required;
-    users: Attribute.Relation<
+    teacher: Attribute.Relation<
       'api::student.student',
       'manyToMany',
       'plugin::users-permissions.user'
@@ -819,6 +819,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    teacherUserName: Attribute.UID<
+      'plugin::users-permissions.user',
+      'username'
+    > &
+      Attribute.Required;
     students: Attribute.Relation<
       'plugin::users-permissions.user',
       'manyToMany',

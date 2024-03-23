@@ -78,11 +78,11 @@
       "type": "string",
       "required": true
     },
-    "users": {
+    "teacher": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "students"
+      "inversedBy": "students"
     }
   }
 }
